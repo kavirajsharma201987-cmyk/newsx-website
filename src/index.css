@@ -1027,14 +1027,16 @@ body {
     border-right: none;
     border-top: 1px solid var(--border-color);
     flex-direction: row;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     justify-content: space-around;
     background: rgba(14, 16, 34, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 45;
   }
   
-  .logo-container, .language-selector-container {
-    display: none;
+  .logo-container, .language-selector-container, .sidebar-footer {
+    display: none !important; /* Hide logo and footer contacts from bottom navbar */
   }
   
   .nav-links {
@@ -1048,7 +1050,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
-    padding: 0.5rem;
+    padding: 0.4rem;
   }
   
   .nav-item span {
@@ -1065,30 +1067,77 @@ body {
     font-size: 1.5rem;
   }
   
+  /* Persistent Bottom Radio Player - Mobile Styles */
   .radio-player-bar {
-    bottom: 64px; /* Align above mobile nav bar */
-    height: 72px;
-    padding: 0 1rem;
+    bottom: 60px; /* Align above mobile bottom navigation bar */
+    height: 76px;
+    padding: 0 0.75rem;
+    background: rgba(14, 16, 34, 0.95);
+  }
+
+  .radio-player-bar .sound-wave {
+    display: none !important; /* Hide equalizer lines on mobile to save horizontal space */
   }
   
   .player-info {
-    width: 50%;
+    width: 45%;
+    gap: 0.5rem;
   }
   
   .vinyl-disc {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .player-controls {
+    width: 45%;
+    gap: 0.4rem;
+  }
+
+  .control-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .control-btn.play-btn {
     width: 40px;
     height: 40px;
   }
   
-  .player-controls {
-    width: 25%;
-  }
-  
   .player-volume {
-    width: 25%;
+    width: 10%;
+    justify-content: flex-end;
   }
   
   .volume-slider {
-    display: none; /* Hide slider on mobile, volume controlled by system */
+    display: none; /* Hide slider on mobile */
+  }
+}
+
+/* Extra mobile styles for compact headers on very small viewports */
+@media (max-width: 480px) {
+  .content-header {
+    margin-bottom: 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .header-actions {
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header-actions .refresh-btn span {
+    display: none !important; /* Hide button text, only keep icons for compact look */
+  }
+
+  .header-actions .refresh-btn {
+    padding: 0.55rem;
+    border-radius: 50%;
+  }
+
+  .header-lang-select {
+    padding: 0.4rem;
+    border-radius: 12px;
   }
 }
