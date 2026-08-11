@@ -38,20 +38,8 @@ export function ArticleModal({ article, onClose, selectedLanguageId }: ArticleMo
           <X size={20} />
         </button>
 
-        {/* Hero Header Image */}
-        {article.image_url && (
-          <img
-            src={article.image_url}
-            alt={article.title}
-            className="modal-image"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }}
-          />
-        )}
-
         {/* Body content */}
-        <div className="modal-body">
+        <div className="modal-body" style={{ paddingTop: '2.5rem' }}>
           <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
             {article.category && (
               <span className="modal-category" style={{ marginBottom: 0 }}>

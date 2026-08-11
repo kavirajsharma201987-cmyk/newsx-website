@@ -256,14 +256,16 @@ export function NewsGrid({ selectedLanguageId, onArticleSelect, refreshTrigger }
     }
   };
 
-  // Skeleton Card component
+  // Skeleton Card component (No image block)
   const SkeletonCard = () => (
-    <div className="glass-card skeleton-container" style={{ height: '380px' }}>
-      <div className="skeleton" style={{ width: '100%', height: '180px', borderRadius: '16px 16px 0 0' }}></div>
+    <div className="glass-card skeleton-container" style={{ height: '220px' }}>
       <div className="card-body" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-        <div className="skeleton" style={{ width: '40%', height: '16px' }}></div>
-        <div className="skeleton" style={{ width: '90%', height: '24px' }}></div>
-        <div className="skeleton" style={{ width: '75%', height: '16px' }}></div>
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <div className="skeleton" style={{ width: '40px', height: '16px' }}></div>
+          <div className="skeleton" style={{ width: '60px', height: '16px' }}></div>
+        </div>
+        <div className="skeleton" style={{ width: '95%', height: '24px' }}></div>
+        <div className="skeleton" style={{ width: '80%', height: '16px' }}></div>
         <div className="skeleton" style={{ width: '60%', height: '16px', marginTop: 'auto' }}></div>
       </div>
     </div>
@@ -315,28 +317,11 @@ export function NewsGrid({ selectedLanguageId, onArticleSelect, refreshTrigger }
                   onClick={() => onArticleSelect(article)}
                   style={{ cursor: 'pointer' }}
                 >
-                  {/* Image Wrapper */}
-                  <div className="card-image-wrapper">
-                    {article.image_url ? (
-                      <img
-                        src={article.image_url}
-                        alt={article.title}
-                        className="card-image"
-                        loading="lazy"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const parent = e.currentTarget.parentElement;
-                          if (parent) {
-                            parent.style.background = 'linear-gradient(135deg, #1e1b4b 0%, #311042 100%)';
-                          }
-                        }}
-                      />
-                    ) : (
-                      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(135deg, #1e1b4b 0%, #311042 100%)' }}></div>
-                    )}
+                  {/* Body Content */}
+                  <div className="card-body" style={{ minHeight: '200px', display: 'flex', flexDirection: 'column' }}>
                     
-                    {/* Floating Badges */}
-                    <div style={{ position: 'absolute', top: '12px', left: '12px', display: 'flex', gap: '0.5rem', flexWrap: 'wrap', zIndex: 2 }}>
+                    {/* Header Badges */}
+                    <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
                       {article.category && (
                         <span className="card-category-badge" style={{ position: 'static' }}>
                           {tCategory(selectedLanguageId, article.category)}
@@ -347,11 +332,11 @@ export function NewsGrid({ selectedLanguageId, onArticleSelect, refreshTrigger }
                         style={{
                           padding: '0.25rem 0.6rem',
                           fontSize: '0.7rem',
-                          fontWeight: 700,
-                          background: 'rgba(59, 130, 246, 0.85)',
-                          backdropFilter: 'blur(4px)',
+                          fontWeight: 750,
+                          background: 'rgba(59, 130, 246, 0.25)',
+                          border: '1px solid rgba(59, 130, 246, 0.4)',
                           borderRadius: '9999px',
-                          color: '#ffffff',
+                          color: '#60a5fa',
                           textTransform: 'uppercase',
                           letterSpacing: '0.05em'
                         }}
@@ -359,15 +344,12 @@ export function NewsGrid({ selectedLanguageId, onArticleSelect, refreshTrigger }
                         {getSourceName(article)}
                       </span>
                     </div>
-                  </div>
 
-                  {/* Body Content */}
-                  <div className="card-body">
                     <h3 className="card-title" title={article.title}>{article.title}</h3>
-                    <p className="card-description">{article.des || 'Tap to view full article detail contents.'}</p>
+                    <p className="card-description" style={{ WebkitLineClamp: 3 }}>{article.des || 'Tap to view full article detail contents.'}</p>
                     
                     {/* Card Footer Actions */}
-                    <div className="card-footer">
+                    <div className="card-footer" style={{ marginTop: 'auto' }}>
                       <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                         <Calendar size={12} />
                         {formatDate(article.published_at)}
