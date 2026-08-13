@@ -21,5 +21,9 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
-.vercel
+*.vercel
+
+# Local Environment Files
+.env
+.env.local
+.env.*.local
