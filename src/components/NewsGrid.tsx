@@ -437,7 +437,7 @@ export function NewsGrid({ selectedLanguageId, onArticleSelect, refreshTrigger }
       {/* Glassmorphic Report Modal Dialog */}
       {reportingArticle && (
         <div className="modal-overlay" onClick={() => setReportingArticle(null)}>
-          <div className="glass-modal report-modal" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '420px', width: '90%', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem', position: 'relative' }}>
+          <div className="glass-modal report-modal" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '420px', width: '90%', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem', position: 'relative', background: 'var(--bg-primary)', border: '1px solid var(--border-color)', borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.1)' }}>
             <button className="modal-close" onClick={() => setReportingArticle(null)} style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'transparent', border: 'none', color: '#9ca3af', cursor: 'pointer' }}>
               <X size={20} />
             </button>
@@ -461,12 +461,12 @@ export function NewsGrid({ selectedLanguageId, onArticleSelect, refreshTrigger }
                     alignItems: 'center',
                     gap: '0.75rem',
                     padding: '0.75rem 1rem',
-                    background: selectedReasonIdx === idx ? 'rgba(59, 130, 246, 0.08)' : 'rgba(255, 255, 255, 0.02)',
-                    border: `1px solid ${selectedReasonIdx === idx ? '#3b82f6' : 'rgba(255, 255, 255, 0.06)'}`,
+                    background: selectedReasonIdx === idx ? 'var(--color-blue-glow)' : 'var(--bg-secondary)',
+                    border: `1px solid ${selectedReasonIdx === idx ? 'var(--color-blue)' : 'var(--border-color)'}`,
                     borderRadius: '12px',
                     cursor: 'pointer',
                     fontSize: '0.85rem',
-                    color: selectedReasonIdx === idx ? '#3b82f6' : 'var(--text-primary)',
+                    color: selectedReasonIdx === idx ? 'var(--color-blue)' : 'var(--text-primary)',
                     transition: 'all 0.2s'
                   }}
                 >
@@ -477,9 +477,9 @@ export function NewsGrid({ selectedLanguageId, onArticleSelect, refreshTrigger }
                     onChange={() => setSelectedReasonIdx(idx)}
                     style={{ display: 'none' }}
                   />
-                  <div style={{ width: '16px', height: '16px', borderRadius: '50%', border: `2px solid ${selectedReasonIdx === idx ? '#3b82f6' : 'rgba(255, 255, 255, 0.25)'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s' }}>
+                  <div style={{ width: '16px', height: '16px', borderRadius: '50%', border: `2px solid ${selectedReasonIdx === idx ? 'var(--color-blue)' : 'var(--border-color)'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s' }}>
                     {selectedReasonIdx === idx && (
-                      <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#3b82f6' }}></div>
+                      <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-blue)' }}></div>
                     )}
                   </div>
                   <span>{reason.label}</span>
@@ -490,7 +490,7 @@ export function NewsGrid({ selectedLanguageId, onArticleSelect, refreshTrigger }
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '0.5rem' }}>
               <button
                 className="refresh-btn"
-                style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.06)', color: 'var(--text-primary)', padding: '0.5rem 1rem' }}
+                style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', color: 'var(--text-primary)', padding: '0.5rem 1rem' }}
                 onClick={() => setReportingArticle(null)}
               >
                 {t(selectedLanguageId, 'btn_cancel')}

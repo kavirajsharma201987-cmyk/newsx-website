@@ -1,11 +1,11 @@
 export const translations: { [key: number]: { [key: string]: string } } = {
   // English (lid: 1)
   1: {
-    tab_news: "Newspaper",
+    tab_news: "Article News",
     tab_ai_news: "AI Briefs",
     tab_hourly_top: "Top",
     tab_radio: "Radio",
-    title_news: "Newspaper",
+    title_news: "Article News",
     title_ai_news: "AI Briefs",
     title_hourly_top: "Top",
     title_radio: "Radio",

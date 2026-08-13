@@ -135,7 +135,7 @@ function App() {
           {/* Action Header controls */}
           <div className="header-actions">
             {/* Contact Us button */}
-            <button className="refresh-btn" onClick={() => setIsContactOpen(true)} title="Contact Support" style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+            <button className="refresh-btn" onClick={() => setIsContactOpen(true)} title="Contact Support">
               <Mail size={16} />
               <span>{t(selectedLanguageId, 'btn_contact')}</span>
             </button>
@@ -219,7 +219,7 @@ function App() {
       {/* Contact Support Modal Overlay */}
       {isContactOpen && (
         <div className="modal-overlay" onClick={() => setIsContactOpen(false)}>
-          <div className="glass-modal contact-modal" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '400px', width: '90%', padding: '2.5rem 2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem', position: 'relative', alignItems: 'center', textAlign: 'center' }}>
+          <div className="glass-modal contact-modal" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '400px', width: '90%', padding: '2.5rem 2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem', position: 'relative', alignItems: 'center', textAlign: 'center', background: 'var(--bg-primary)', border: '1px solid var(--border-color)', borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.1)' }}>
             <button className="modal-close" onClick={() => setIsContactOpen(false)} style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'transparent', border: 'none', color: '#9ca3af', cursor: 'pointer' }}>
               <X size={20} />
             </button>
@@ -239,18 +239,18 @@ function App() {
             <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1rem' }}>
               <a
                 href="mailto:kaviraj.sharma201987@gmail.com"
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '0.85rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '12px', color: 'var(--text-primary)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 500, transition: 'all 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#3b82f6'; e.currentTarget.style.background = 'rgba(59, 130, 246, 0.05)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '0.85rem', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '12px', color: 'var(--text-primary)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 500, transition: 'all 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--color-blue)'; e.currentTarget.style.background = 'var(--color-blue-glow)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border-color)'; e.currentTarget.style.background = 'var(--bg-secondary)'; }}
               >
                 <Mail size={16} style={{ color: '#3b82f6' }} />
                 <span>kaviraj.sharma201987@gmail.com</span>
               </a>
               <a
                 href="tel:+919465576228"
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '0.85rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '12px', color: 'var(--text-primary)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 500, transition: 'all 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#3b82f6'; e.currentTarget.style.background = 'rgba(59, 130, 246, 0.05)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '0.85rem', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '12px', color: 'var(--text-primary)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 500, transition: 'all 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--color-blue)'; e.currentTarget.style.background = 'var(--color-blue-glow)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border-color)'; e.currentTarget.style.background = 'var(--bg-secondary)'; }}
               >
                 <Phone size={16} style={{ color: '#3b82f6' }} />
                 <span>+91 94655 76228</span>
